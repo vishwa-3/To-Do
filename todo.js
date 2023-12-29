@@ -1,11 +1,10 @@
 const heading = document.getElementById('title');
 
-const input = document.getElementById('task');
-const addBtn = document.getElementById('add');
+const inputTask = document.getElementById('input-text');
+const addButton = document.getElementById('add');
 
-const taskList = document.querySelector('.task-list');
-const lists = document.querySelectorAll('.text');
-const delBtn = document.querySelectorAll('.del');
+const taskContainer = document.querySelector('.task-container');
+const delButton = document.querySelectorAll('.del');
 
 
 
@@ -14,39 +13,39 @@ if (title !== '') {
    heading.textContent = title.toUpperCase();
 }
 
-addBtn.addEventListener('click',addList);
-input.addEventListener('keypress',(e)=>{
-    if(e.key==='Enter') addList(e);
+addButton.addEventListener('click',addTask);
+inputTask.addEventListener('keypress',(e)=>{
+    if(e.key==='Enter') addTask(e);
 });
 
-function addList(e){
-    const inputText = input.value.trim();
+function addTask(e){
+    const inputText = inputTask.value.trim();
     if (e.type === 'click' || e.type === 'keypress'){
         if(inputText!=''){
             
             const newList = document.createElement('div');
             newList.classList.add('list');
 
-            const newLable = document.createElement('label');
-            newLable.classList.add('text');
-            newLable.textContent = inputText;
+            const newLabel = document.createElement('label');
+            newLabel.classList.add('text');
+            newLabel.textContent = inputText;
 
-            const newDelBtn = document.createElement('button');
-            newDelBtn.classList.add('del',"material-symbols-outlined");
-            newDelBtn.textContent = 'close';
+            const newDelButton = document.createElement('button');
+            newDelButton.classList.add('del',"material-symbols-outlined");
+            newDelButton.textContent = 'close';
 
-            newList.appendChild(newLable);
-            newList.appendChild(newDelBtn);
+            newList.appendChild(newLabel);
+            newList.appendChild(newDelButton);
 
-            taskList.appendChild(newList);
+            taskContainer.appendChild(newList);
 
-            input.value='';
+            inputTask.value='';
 
         }
     }
 }
 
-taskList.addEventListener('click',(e)=>{
+taskContainer .addEventListener('click',(e)=>{
     const target = e.target;
     if(target.classList.contains('text'))
         target.parentElement.classList.toggle('completed-list');

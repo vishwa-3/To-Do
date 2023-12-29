@@ -1,0 +1,15 @@
+To-Do app
+
+HTML:
+    1. container -> header and task-container
+    2. header -> title, input and button
+    3. task-container contains the to-do task
+
+JS:
+    1. Elements selected using querySelector and getElementById.
+    2. Clicking the 'add' button or pressing 'Enter' to add list
+    3. Generates a new task structure by creating a 'div' element with the class 'list', a 'label' element to display the input text, and a 'button' for deletion.
+    4. Appends these elements to the 'task-container'.
+    5. Clears the input after task creation.
+    6. Clicking a task text toggles the 'completed-list' class on its parent element.
+    7. Clicking the 'close' button removes the corresponding task.
